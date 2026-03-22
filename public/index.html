@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lola's 12th Birthday | Coquette Sleepover at Kimpton Seafire 🎀</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300;400;500;600;700&family=Sacramento&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --pink-100: #fff0f5;
+            --pink-200: #fce4ec;
+            --pink-300: #f8bbd0;
+            --pink-400: #f48fb1;
+            --pink-500: #ec407a;
+            --pink-600: #d81b60;
+            --blush: #fadadd;
+            --cream: #fff9f5;
+            --gold: #d4a574;
+            --gold-light: #f0d9b5;
+            --white: #ffffff;
+            --text-dark: #4a2040;
+            --text-medium: #7a4a6a;
+            --text-light: #b07a9a;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: var(--cream);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ctext y='15' font-size='15'%3E🎀%3C/text%3E%3C/svg%3E"), auto;
+        }
+
+        /* ═══════════════════════════════════════
+           SPARKLE CANVAS
+        ═══════════════════════════════════════ */
+        #sparkle-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* ═══════════════════════════════════════
+           FLOATING ELEMENTS
+        ═══════════════════════════════════════ */
+        .floating-elements {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .floating-item {
+            position: absolute;
+            font-size: 1.5rem;
+            opacity: 0.3;
+            animation: floatAround 15s infinite ease-in-out;
+        }
+
+        @keyframes floatAround {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-30px) rotate(10deg); }
+            50% { transform: translateY(-15px) rotate(-5deg); }
+            75% { transform: translateY(-40px) rotate(8deg); }
+        }
+
+        /* ═══════════════════════════════════════
+           NAVIGATION
+        ═══════════════════════════════════════ */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(255, 249, 245, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(244, 143, 177, 0.2);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(255, 249, 245, 0.95);
+            box-shadow: 0 4px 30px rgba(236, 64, 122, 0.1);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-medium);
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--pink-500);
+            background: rgba(244, 143, 177, 0.1);
+        }
+
+        nav a::after {
+            content: '✧';
+            position: absolute;
+            right: -2px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.5rem;
+            color: var(--pink-400);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        nav a:hover::after { opacity: 1; }
+
+        /* ═══════════════════════════════════════
+           HERO SECTION
+        ═══════════════════════════════════════ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(180deg, var(--pink-100) 0%, var(--cream) 100%);
+            padding: 2rem;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(ellipse at 30% 20%, rgba(244, 143, 177, 0.15) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 80%, rgba(248, 187, 208, 0.1) 0%, transparent 50%),
+                        radial-gradient(ellipse at 50% 50%, rgba(252, 228, 236, 0.2) 0%, transparent 40%);
+            animation: heroGlow 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroGlow {
+            0% { transform: scale(1) rotate(0deg); }
+            100% { transform: scale(1.1) rotate(3deg); }
+        }
+
+        .hero-ribbon {
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--pink-400);
+            opacity: 0;
+            animation: fadeSlideDown 1s ease 0.3s forwards;
+        }
+
+        .hero-ribbon::before, .hero-ribbon::after {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--pink-300);
+        }
+
+        .bow-icon {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeSlideDown 1s ease 0.5s forwards, bowBounce 3s ease-in-out 1.5s infinite;
+            filter: drop-shadow(0 4px 15px rgba(236, 64, 122, 0.3));
+        }
+
+        @keyframes bowBounce {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(5deg); }
+        }
+
+        .hero-title {
+            font-family: 'Sacramento', cursive;
+            font-size: clamp(3.5rem, 10vw, 8rem);
+            color: var(--pink-500);
+            line-height: 1.1;
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            animation: fadeSlideUp 1.2s ease 0.7s forwards;
+            text-shadow: 2px 4px 20px rgba(236, 64, 122, 0.2);
+        }
+
+        .hero-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            color: var(--text-medium);
+            margin-top: 0.5rem;
+            font-weight: 400;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            animation: fadeSlideUp 1.2s ease 1s forwards;
+        }
+
+        .hero-date {
+            font-size: 1rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-top: 2rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            animation: fadeSlideUp 1.2s ease 1.3s forwards;
+        }
+
+        .hero-stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0; left: 0;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            color: var(--pink-300);
+            opacity: 0;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 0.6; transform: scale(1); }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            opacity: 0;
+            animation: fadeSlideUp 1s ease 2s forwards;
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 2px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--pink-400), transparent);
+            margin: 0 auto;
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+
+        .scroll-indicator p {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--pink-400);
+            margin-top: 0.5rem;
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.3; height: 30px; }
+            50% { opacity: 1; height: 50px; }
+        }
+
+        /* ═══════════════════════════════════════
+           SECTION STYLES
+        ═══════════════════════════════════════ */
+        section {
+            position: relative;
+            z-index: 2;
+            padding: 5rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--pink-400);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-family: 'Sacramento', cursive;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--pink-500);
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--pink-300), transparent);
+            margin: 1rem auto;
+        }
+
+        /* ═══════════════════════════════════════
+           COUNTDOWN SECTION
+        ═══════════════════════════════════════ */
+        .countdown-section {
+            background: linear-gradient(180deg, var(--cream) 0%, var(--pink-100) 50%, var(--cream) 100%);
+        }
+
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .countdown-item {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 1.5rem 2rem;
+            min-width: 120px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(236, 64, 122, 0.08),
+                        0 2px 10px rgba(236, 64, 122, 0.05);
+            border: 1px solid rgba(244, 143, 177, 0.15);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .countdown-item::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(to right, var(--pink-300), var(--pink-500), var(--pink-300));
+        }
+
+        .countdown-item:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        .countdown-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--pink-500);
+            line-height: 1;
+        }
+
+        .countdown-label {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        /* ═══════════════════════════════════════
+           DETAILS SECTION
+        ═══════════════════════════════════════ */
+        .details-section {
+            background: var(--cream);
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .detail-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(236, 64, 122, 0.06);
+            border: 1px solid rgba(244, 143, 177, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .detail-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 0;
+            background: linear-gradient(to top, rgba(252, 228, 236, 0.3), transparent);
+            transition: height 0.4s ease;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(236, 64, 122, 0.12);
+        }
+
+        .detail-card:hover::after {
+            height: 100%;
+        }
+
+        .detail-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+            animation: gentleFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .detail-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--pink-500);
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-card p {
+            color: var(--text-medium);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* ═══════════════════════════════════════
+           SCHEDULE TIMELINE
+        ═══════════════════════════════════════ */
+        .schedule-section {
+            background: linear-gradient(180deg, var(--cream) 0%, var(--pink-100) 100%);
+        }
+
+        .timeline {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--pink-300), var(--pink-400), var(--pink-300));
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+            text-align: right;
+        }
+
+        .timeline-dot {
+            width: 40px;
+            height: 40px;
+            background: var(--white);
+            border: 3px solid var(--pink-400);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+            z-index: 2;
+            box-shadow: 0 4px 15px rgba(236, 64, 122, 0.15);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-content {
+            width: calc(50% - 40px);
+            background: var(--white);
+            border-radius: 16px;
+            padding: 1.2rem 1.5rem;
+            box-shadow: 0 4px 20px rgba(236, 64, 122, 0.06);
+            border: 1px solid rgba(244, 143, 177, 0.1);
+        }
+
+        .timeline-time {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--pink-400);
+            font-weight: 600;
+        }
+
+        .timeline-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-top: 0.25rem;
+        }
+
+        .timeline-desc {
+            font-size: 0.85rem;
+            color: var(--text-medium);
+            margin-top: 0.25rem;
+        }
+
+        /* ═══════════════════════════════════════
+           MOOD BOARD / GALLERY
+        ═══════════════════════════════════════ */
+        .gallery-section {
+            background: var(--pink-100);
+        }
+
+        .mood-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-auto-rows: 200px;
+            gap: 1rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .mood-card {
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border: 1px solid rgba(244, 143, 177, 0.15);
+        }
+
+        .mood-card:nth-child(1) { grid-row: span 2; background: linear-gradient(135deg, #fce4ec, #f8bbd0); }
+        .mood-card:nth-child(2) { background: linear-gradient(135deg, #fff0f5, #fce4ec); }
+        .mood-card:nth-child(3) { background: linear-gradient(135deg, #f8bbd0, #f48fb1); }
+        .mood-card:nth-child(4) { grid-column: span 2; background: linear-gradient(135deg, #fff0f5, #fadadd); }
+        .mood-card:nth-child(5) { background: linear-gradient(135deg, #fce4ec, #f8bbd0); }
+        .mood-card:nth-child(6) { background: linear-gradient(135deg, #f48fb1, #ec407a); }
+
+        .mood-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 40px rgba(236, 64, 122, 0.2);
+        }
+
+        .mood-card .mood-emoji {
+            font-size: 3.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .mood-card:hover .mood-emoji {
+            transform: scale(1.3) rotate(10deg);
+        }
+
+        .mood-card .mood-label {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-medium);
+            background: rgba(255,255,255,0.8);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        /* ═══════════════════════════════════════
+           WHAT TO BRING
+        ═══════════════════════════════════════ */
+        .bring-section {
+            background: linear-gradient(180deg, var(--pink-100) 0%, var(--cream) 100%);
+        }
+
+        .bring-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .bring-item {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(236, 64, 122, 0.06);
+            border: 1px solid rgba(244, 143, 177, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .bring-item:hover {
+            transform: translateY(-5px) rotate(2deg);
+            box-shadow: 0 15px 40px rgba(236, 64, 122, 0.12);
+        }
+
+        .bring-item .bring-emoji {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+
+        .bring-item p {
+            color: var(--text-medium);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* ═══════════════════════════════════════
+           RSVP SECTION
+        ═══════════════════════════════════════ */
+        .rsvp-section {
+            background: linear-gradient(180deg, var(--cream) 0%, var(--pink-200) 50%, var(--cream) 100%);
+        }
+
+        .rsvp-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 30px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(236, 64, 122, 0.1),
+                        0 4px 20px rgba(236, 64, 122, 0.05);
+            border: 1px solid rgba(244, 143, 177, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rsvp-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--pink-300), var(--pink-500), var(--gold), var(--pink-500), var(--pink-300));
+        }
+
+        .rsvp-form { display: flex; flex-direction: column; gap: 1.2rem; }
+
+        .form-group { position: relative; }
+
+        .form-group label {
+            display: block;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            border: 2px solid rgba(244, 143, 177, 0.2);
+            border-radius: 14px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            background: rgba(255, 240, 245, 0.3);
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--pink-400);
+            background: var(--white);
+            box-shadow: 0 0 0 4px rgba(244, 143, 177, 0.1);
+        }
+
+        .form-group textarea { resize: vertical; min-height: 80px; }
+
+        .rsvp-btn {
+            background: linear-gradient(135deg, var(--pink-400), var(--pink-500));
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+
+        .rsvp-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .rsvp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(236, 64, 122, 0.3);
+        }
+
+        .rsvp-btn:hover::before { left: 100%; }
+
+        .rsvp-success {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .rsvp-success.show { display: block; }
+        .rsvp-success .success-icon { font-size: 4rem; margin-bottom: 1rem; }
+        .rsvp-success h3 {
+            font-family: 'Sacramento', cursive;
+            font-size: 2.5rem;
+            color: var(--pink-500);
+        }
+        .rsvp-success p { color: var(--text-medium); margin-top: 0.5rem; }
+
+        /* ═══════════════════════════════════════
+           FOOTER
+        ═══════════════════════════════════════ */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(180deg, var(--cream), var(--pink-100));
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-bow { font-size: 2rem; margin-bottom: 0.5rem; }
+
+        footer p {
+            font-family: 'Sacramento', cursive;
+            font-size: 1.8rem;
+            color: var(--pink-400);
+        }
+
+        footer .footer-small {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        /* ═══════════════════════════════════════
+           ANIMATIONS
+        ═══════════════════════════════════════ */
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeSlideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal {
+            opacity: 0;
+        transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ═══════════════════════════════════════
+           CONFETTI BURST BUTTON
+        ═══════════════════════════════════════ */
+        .confetti-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
+            background: linear-gradient(135deg, var(--pink-400), var(--pink-500));
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(236, 64, 122, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .confetti-btn:hover {
+            transform: scale(1.15) rotate(10deg);
+            box-shadow: 0 12px 40px rgba(236, 64, 122, 0.4);
+        }
+
+        /* ═══════════════════════════════════════
+           LACE BORDER DIVIDER
+        ═══════════════════════════════════════ */
+        .lace-divider {
+            text-align: center;
+            padding: 1rem 0;
+            color: var(--pink-300);
+            font-size: 1.2rem;
+            letter-spacing: 8px;
+            opacity: 0.5;
+            user-select: none;
+        }
+
+        /* ═══════════════════════════════════════
+           RESPONSIVE
+        ═══════════════════════════════════════ */
+        @media (max-width: 768px) {
+            nav { gap: 0.5rem; padding: 0.8rem 1rem; flex-wrap: wrap; }
+            nav a { font-size: 0.7rem; letter-spacing: 1px; padding: 0.4rem 0.6rem; }
+
+            .countdown-container { gap: 1rem; }
+            .countdown-item { min-width: 90px; padding: 1rem 1.5rem; }
+            .countdown-number { font-size: 2.2rem; }
+
+            .timeline::before { left: 20px; }
+            .timeline-item, .timeline-item:nth-child(odd) { flex-direction: row; text-align: left; padding-left: 60px; }
+            .timeline-dot { left: 20px; transform: translateX(-50%); }
+            .timeline-content { width: 100%; }
+
+            .mood-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
+            .mood-card:nth-child(1) { grid-row: span 1; }
+            .mood-card:nth-child(4) { grid-column: span 1; }
+
+            .rsvp-container { padding: 2rem 1.5rem; margin: 0 1rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title { font-size: 3rem; }
+            .hero-subtitle { font-size: 1rem; }
+            .countdown-container { gap: 0.8rem; }
+            .countdown-item { min-width: 70px; padding: 0.8rem 1rem; }
+            .countdown-number { font-size: 1.8rem; }
+            .bring-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SPARKLE CANVAS -->
+    <canvas id="sparkle-canvas"></canvas>
+
+    <!-- FLOATING BACKGROUND ELEMENTS -->
+    <div class="floating-elements" id="floating-elements"></div>
+
+    <!-- NAVIGATION -->
+    <nav id="navbar">
+        <a href="#home">Home</a>
+        <a href="#countdown">Countdown</a>
+        <a href="#details">Details</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#vibes">Vibes</a>
+        <a href="#rsvp">RSVP</a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-stars" id="hero-stars"></div>
+        <div class="hero-ribbon">you're invited</div>
+        <span class="bow-icon">🎀</span>
+        <h1 class="hero-title">Lola's 12th Birthday</h1>
+        <p class="hero-subtitle">a pink-and-bows seaside sleepover</p>
+        <p class="hero-location" style="font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-top: 0.8rem; font-weight: 600; position: relative; z-index: 2; opacity: 0; animation: fadeSlideUp 1.2s ease 1.15s forwards;">Kimpton Seafire Resort &bull; Cayman Islands</p>
+        <p class="hero-date">✧ September 26, 2026 ✧</p>
+        <div class="scroll-indicator">
+            <span></span>
+            <p>scroll</p>
+        </div>
+    </section>
+
+    <div class="lace-divider">✿ ✧ ❀ ✧ ✿ ✧ ❀ ✧ ✿ ✧ ❀ ✧ ✿</div>
+
+    <!-- COUNTDOWN -->
+    <section class="countdown-section" id="countdown">
+        <div class="section-header reveal">
+            <p class="section-label">✧ mark your calendars ✧</p>
+            <h2 class="section-title">The Countdown</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="countdown-container reveal">
+            <div class="countdown-item">
+                <div class="countdown-number" id="days">000</div>
+                <div class="countdown-label">Days</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="hours">00</div>
+                <div class="countdown-label">Hours</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="minutes">00</div>
+                <div class="countdown-label">Minutes</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="seconds">00</div>
+                <div class="countdown-label">Seconds</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="lace-divider">🎀 ✧ 🎀 ✧ 🎀 ✧ 🎀 ✧ 🎀</div>
+
+    <!-- DETAILS -->
+    <section class="details-section" id="details">
+        <div class="section-header reveal">
+            <p class="section-label">✧ the details ✧</p>
+            <h2 class="section-title">Party Info</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="details-grid">
+            <div class="detail-card reveal">
+                <span class="detail-icon">📅</span>
+                <h3>When</h3>
+                <p>Saturday, September 26, 2026<br>Starts at 5:00 PM<br>Pick-up Sunday at 10:00 AM</p>
+            </div>
+            <div class="detail-card reveal">
+                <span class="detail-icon">📍</span>
+                <h3>Where</h3>
+                <p>Kimpton Seafire Resort<br>Grand Cayman, Cayman Islands</p>
+            </div>
+            <div class="detail-card reveal">
+                <span class="detail-icon">👗</span>
+                <h3>Dress Code</h3>
+                <p>Cutest PJs you own!<br>Think: pink, bows, & sparkles ✨</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="lace-divider">❀ ✧ ❀ ✧ ❀ ✧ ❀ ✧ ❀ ✧ ❀</div>
+
+    <!-- SCHEDULE / TIMELINE -->
+    <section class="schedule-section" id="schedule">
+        <div class="section-header reveal">
+            <p class="section-label">✧ the plan ✧</p>
+            <h2 class="section-title">Sleepover Schedule</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot">🌴</div>
+                <div class="timeline-content">
+                    <div class="timeline-time">5:00 PM</div>
+                    <div class="timeline-title">Arrivals at Seafire</div>
+                    <div class="timeline-desc">Check in & walk the pink carpet!</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">🐚</div>
+                <div class="timeline-content">
+                    <div class="timeline-time">5:30 PM</div>
+                    <div class="timeline-title">Beach & Pool Time</div>
+                    <div class="timeline-desc">Sunset splashing & seaside selfies</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">🍕</div>
+                <div class="timeline-content">
+                    <div class="timeline-time">6:30 PM</div>
+                    <div class="timeline-title">Dinner Party</div>
+                    <div class="timeline-desc">Pizza, sweet treats & pink lemonade</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">💅</div>
+                <div class="timeline-content">
+                    <div class="timeline-time">7:30 PM</div>
+                    <div class="timeline-title">Spa & Glam Station</div>
+                    <div class="timeline-desc">Face masks, nails, & makeovers</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">🎤</div>
+                <div class="timeline-content">
+                    <div class="timeline-time">8:30 PM</div>
+                    <div class="timeline-title">Karaoke & Dance Party</div>
+                    <div class="timeline-desc">Sing your heart out!</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">🎂</div>
+                <div class="timeline-content">
+                    <div class="timeline-time">9:30 PM</div>
+                    <div class="timeline-title">Cake & Wishes</div>
+                    <div class="timeline-desc">The sweetest moment of the night</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">🎬</div>
+                <div class="timeline-content">
+                    <div class="timeline-time">10:00 PM</div>
+                    <div class="timeline-title">Movie & Snuggle Time</div>
+                    <div class="timeline-desc">Cozy up for a movie marathon</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">🥞</div>
+                <div class="timeline-content">
+                    <div class="timeline-time">9:00 AM</div>
+                    <div class="timeline-title">Pancake Breakfast</div>
+                    <div class="timeline-desc">Rise, shine, & eat pancakes!</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="lace-divider">🎀 ✧ ✿ ✧ 🎀 ✧ ✿ ✧ 🎀</div>
+
+    <!-- MOOD BOARD / VIBES -->
+    <section class="gallery-section" id="vibes">
+        <div class="section-header reveal">
+            <p class="section-label">✧ the aesthetic ✧</p>
+            <h2 class="section-title">Party Vibes</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="mood-grid reveal">
+            <div class="mood-card">
+                <span class="mood-emoji">🎀</span>
+                <span class="mood-label">Coquette</span>
+            </div>
+            <div class="mood-card">
+                <span class="mood-emoji">✨</span>
+                <span class="mood-label">Sparkle</span>
+            </div>
+            <div class="mood-card">
+                <span class="mood-emoji">💅</span>
+                <span class="mood-label">Glam</span>
+            </div>
+            <div class="mood-card">
+                <span class="mood-emoji">🐚</span>
+                <span class="mood-label">Seaside</span>
+            </div>
+            <div class="mood-card">
+                <span class="mood-emoji">🌸</span>
+                <span class="mood-label">Pretty in Pink</span>
+            </div>
+            <div class="mood-card">
+                <span class="mood-emoji">🌅</span>
+                <span class="mood-label">Golden Hour</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="lace-divider">❀ ✧ ❀ ✧ ❀ ✧ ❀ ✧ ❀ ✧ ❀</div>
+
+    <!-- WHAT TO BRING -->
+    <section class="bring-section" id="bring">
+        <div class="section-header reveal">
+            <p class="section-label">✧ don't forget ✧</p>
+            <h2 class="section-title">What to Bring</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="bring-grid reveal">
+            <div class="bring-item">
+                <span class="bring-emoji">🛏️</span>
+                <p>Sleeping Bag</p>
+            </div>
+            <div class="bring-item">
+                <span class="bring-emoji">🧸</span>
+                <p>Fave Stuffie</p>
+            </div>
+            <div class="bring-item">
+                <span class="bring-emoji">👚</span>
+                <p>Cute PJs</p>
+            </div>
+            <div class="bring-item">
+                <span class="bring-emoji">🪥</span>
+                <p>Toothbrush</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="lace-divider">🎀 ✧ 🎀 ✧ 🎀 ✧ 🎀 ✧ 🎀</div>
+
+    <!-- RSVP -->
+    <section class="rsvp-section" id="rsvp">
+        <div class="section-header reveal">
+            <p class="section-label">✧ say you'll be there ✧</p>
+            <h2 class="section-title">RSVP</h2>
+            <div class="section-divider"></div>
+            <p style="color: var(--text-medium); font-size: 0.9rem; margin-top: 0.5rem;">Please respond by <strong style="color: var(--pink-500);">September 1, 2026</strong></p>
+        </div>
+        <div class="rsvp-container reveal">
+            <form class="rsvp-form" id="rsvp-form">
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" name="name" placeholder="First & last name" required>
+                </div>
+                <div class="form-group">
+                    <label>Will you be there?</label>
+                    <select name="attending" required>
+                        <option value="" disabled selected>Choose one...</option>
+                        <option value="yes">Yes, I'll be there! 🎉</option>
+                        <option value="maybe">Maybe — I'll confirm soon!</option>
+                        <option value="no">I can't make it 😢</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Parent/Guardian Contact</label>
+                    <input type="text" name="contact" placeholder="Phone number or email">
+                </div>
+                <div class="form-group">
+                    <label>Any allergies or notes?</label>
+                    <textarea name="notes" placeholder="Let us know anything we should be aware of..."></textarea>
+                </div>
+                <button type="submit" class="rsvp-btn" id="rsvp-submit-btn">Send RSVP 🎀</button>
+            </form>
+            <div class="rsvp-success" id="rsvp-success">
+                <div class="success-icon">🎉</div>
+                <h3>You're on the list!</h3>
+                <p>Can't wait to see you at the sleepover! 💖</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-bow">🎀</div>
+        <p>See you there, gorgeous!</p>
+        <p class="footer-small">coquette sleepover at kimpton seafire resort &bull; 26 september 2026</p>
+    </footer>
+
+    <!-- CONFETTI BUTTON -->
+    <button class="confetti-btn" id="confetti-btn" title="Click for confetti!">🎉</button>
+
+    <script>
+        // ═══════════════════════════════════════
+        // COUNTDOWN TIMER
+        // ═══════════════════════════════════════
+        const partyDate = new Date('September 26, 2026 17:00:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const diff = partyDate - now;
+
+            if (diff <= 0) {
+                document.getElementById('days').textContent = '🎉';
+                document.getElementById('hours').textContent = '🎉';
+                document.getElementById('minutes').textContent = '🎉';
+                document.getElementById('seconds').textContent = '🎉';
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(3, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // ═══════════════════════════════════════
+        // SPARKLE CANVAS (follows mouse)
+        // ═══════════════════════════════════════
+        const canvas = document.getElementById('sparkle-canvas');
+        const ctx = canvas.getContext('2d');
+        let sparkles = [];
+        let mouseX = 0, mouseY = 0;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            for (let i = 0; i < 2; i++) {
+                sparkles.push({
+                    x: mouseX + (Math.random() - 0.5) * 20,
+                    y: mouseY + (Math.random() - 0.5) * 20,
+                    size: Math.random() * 4 + 1,
+                    life: 1,
+                    decay: Math.random() * 0.03 + 0.01,
+                    vx: (Math.random() - 0.5) * 2,
+                    vy: (Math.random() - 0.5) * 2 - 1,
+                    color: ['#f48fb1', '#ec407a', '#f8bbd0', '#d4a574', '#fce4ec'][Math.floor(Math.random() * 5)]
+                });
+            }
+        });
+
+        function drawSparkles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            sparkles = sparkles.filter(s => s.life > 0);
+
+            sparkles.forEach(s => {
+                ctx.save();
+                ctx.globalAlpha = s.life;
+                ctx.fillStyle = s.color;
+                ctx.translate(s.x, s.y);
+                ctx.rotate(s.life * Math.PI);
+
+                // Draw a 4-point star
+                ctx.beginPath();
+                for (let i = 0; i < 4; i++) {
+                    const angle = (i / 4) * Math.PI * 2 - Math.PI / 2;
+                    const outerX = Math.cos(angle) * s.size * 2;
+                    const outerY = Math.sin(angle) * s.size * 2;
+                    const innerAngle = angle + Math.PI / 4;
+                    const innerX = Math.cos(innerAngle) * s.size * 0.5;
+                    const innerY = Math.sin(innerAngle) * s.size * 0.5;
+
+                    if (i === 0) ctx.moveTo(outerX, outerY);
+                    else ctx.lineTo(outerX, outerY);
+                    ctx.lineTo(innerX, innerY);
+                }
+                ctx.closePath();
+                ctx.fill();
+                ctx.restore();
+
+                s.x += s.vx;
+                s.y += s.vy;
+                s.life -= s.decay;
+            });
+
+            requestAnimationFrame(drawSparkles);
+        }
+        drawSparkles();
+
+        // ═══════════════════════════════════════
+        // HERO STARS
+        // ═══════════════════════════════════════
+        const heroStars = document.getElementById('hero-stars');
+        const starChars = ['✦', '✧', '⋆', '✶', '✷', '♡'];
+        for (let i = 0; i < 30; i++) {
+            const star = document.createElement('span');
+            star.className = 'star';
+            star.textContent = starChars[Math.floor(Math.random() * starChars.length)];
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.fontSize = (Math.random() * 1.5 + 0.5) + 'rem';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            heroStars.appendChild(star);
+        }
+
+// ═══════════════════════════════════════
+        // FLOATING BACKGROUND ELEMENTS
+        // ═══════════════════════════════════════
+        const floatingContainer = document.getElementById('floating-elements');
+        const floatingEmojis = ['🎀', '✨', '💖', '🌸', '⭐', '🦋', '💫', '🩷'];
+        for (let i = 0; i < 15; i++) {
+            const item = document.createElement('div');
+            item.className = 'floating-item';
+            item.textContent = floatingEmojis[Math.floor(Math.random() * floatingEmojis.length)];
+            item.style.left = Math.random() * 100 + '%';
+            item.style.top = Math.random() * 100 + '%';
+            item.style.animationDelay = Math.random() * 10 + 's';
+            item.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            item.style.fontSize = (Math.random() * 1.5 + 0.8) + 'rem';
+            floatingContainer.appendChild(item);
+        }
+
+        // ═══════════════════════════════════════
+        // SCROLL REVEAL
+        // ═══════════════════════════════════════
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal, .timeline-item').forEach(el => observer.observe(el));
+
+        // ═══════════════════════════════════════
+        // NAVBAR SCROLL EFFECT
+        // ═══════════════════════════════════════
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // ═══════════════════════════════════════
+        // RSVP FORM
+        // ═══════════════════════════════════════
+        document.getElementById('rsvp-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = document.getElementById('rsvp-form');
+            const btn = document.getElementById('rsvp-submit-btn');
+            const success = document.getElementById('rsvp-success');
+
+            btn.textContent = 'Sending... 💖';
+            btn.disabled = true;
+
+            const data = {
+                name: form.querySelector('[name="name"]').value,
+                attending: form.querySelector('[name="attending"]').value,
+                contact: form.querySelector('[name="contact"]').value,
+                notes: form.querySelector('[name="notes"]').value
+            };
+
+            try {
+                const res = await fetch('/api/rsvp', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                const json = await res.json();
+                if (json.success) {
+                    form.style.display = 'none';
+                    success.classList.add('show');
+                    launchConfetti();
+                } else {
+                    btn.textContent = 'Send RSVP 🎀';
+                    btn.disabled = false;
+                    alert('Something went wrong — please try again!');
+                }
+            } catch (err) {
+                btn.textContent = 'Send RSVP 🎀';
+                btn.disabled = false;
+                alert('Could not send RSVP — please try again!');
+            }
+        });
+
+        // ═══════════════════════════════════════
+        // CONFETTI
+        // ═══════════════════════════════════════
+        function launchConfetti() {
+            const colors = ['#f48fb1', '#ec407a', '#f8bbd0', '#d4a574', '#fce4ec', '#ff80ab', '#ffffff'];
+            const confettiCount = 150;
+
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.cssText = `
+                    position: fixed;
+                    top: -10px;
+                    left: ${Math.random() * 100}vw;
+                    width: ${Math.random() * 10 + 5}px;
+                    height: ${Math.random() * 10 + 5}px;
+                    background: ${colors[Math.floor(Math.random() * colors.length)]};
+                    border-radius: ${Math.random() > 0.5 ? '50%' : '2px'};
+                    z-index: 10000;
+                    pointer-events: none;
+                    animation: confettiFall ${Math.random() * 3 + 2}s linear forwards;
+                    animation-delay: ${Math.random() * 0.5}s;
+                `;
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 5000);
+            }
+
+            // Add keyframes if not already added
+            if (!document.getElementById('confetti-style')) {
+                const style = document.createElement('style');
+                style.id ='confetti-style';
+                style.textContent = `
+                    @keyframes confettiFall {
+                        0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
+                        100% { transform: translateY(100vh) rotate(${Math.random() * 720}deg) scale(0.5); opacity: 0; }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        }
+
+        document.getElementById('confetti-btn').addEventListener('click', launchConfetti);
+
+        // ═══════════════════════════════════════
+        // SMOOTH SCROLL FOR NAV LINKS
+        // ═══════════════════════════════════════
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
