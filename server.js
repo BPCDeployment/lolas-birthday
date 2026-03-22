@@ -7,7 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const RSVPS_FILE = path.join(__dirname, 'rsvps.json');
 
-const PASSWORD   = 'Coquette26';
+const PASSWORD   = 'Coquette2026';
 const AUTH_TOKEN = 'lola-vip-seafire-2026';
 
 app.use(express.json());
