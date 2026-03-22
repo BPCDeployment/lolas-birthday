@@ -1,12 +1,12 @@
 {
   "name": "lolas-birthday",
   "version": "1.0.0",
-  "description": "Lola's 12th Birthday Sleepover Party Website",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "cookie-parser": "^1.4.6"
   }
 }
